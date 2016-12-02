@@ -24,8 +24,8 @@ public class popAnimal : MonoBehaviour {
 		animalInstance = Instantiate (animal, transform.position, Quaternion.identity) as GameObject;
         if (animalInstance.GetComponent<Animal>() != false)
             animalInstance.GetComponent<Animal>().enabled = false;
-        if (animalInstance.GetComponent<NavMeshAgent>() != false)
-            animalInstance.GetComponent<NavMeshAgent>().enabled = false;
+        if (animalInstance.GetComponent<UnityEngine.AI.NavMeshAgent>() != false)
+            animalInstance.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         animalInstance.transform.GetChild(0).localScale = new Vector3(1f, 1f, 1f);
         foreach (Transform e in animalInstance.transform.GetChild(0))
             e.localScale = new Vector3(1f, 1f, 1f);

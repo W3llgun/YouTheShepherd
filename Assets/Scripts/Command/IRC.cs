@@ -13,7 +13,7 @@ public class IRC : MonoBehaviour {
     TcpClient client;
     string channel ;
     string loginstring;
-
+	bool listen = true;
     public int port = 6667;
     public string hostname = "irc.twitch.tv";
     public string username = "youtheshepherd";
@@ -91,8 +91,9 @@ public class IRC : MonoBehaviour {
 
     
    IEnumerator messages () {
+
         yield return new WaitForSeconds(1f);
-        while (true)
+        while (listen)
         {
             byte[] myReadBuffer = new byte[1024];
             StringBuilder myCompleteMessage = new StringBuilder();

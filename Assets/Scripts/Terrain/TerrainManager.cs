@@ -9,7 +9,6 @@ public partial class TerrainGenerator : MonoBehaviour {
     public Vector3 cursor;
     Color cacheColor;
 	
-	// Update is called once per frame
 	void Update () {
 	    if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -29,7 +28,7 @@ public partial class TerrainGenerator : MonoBehaviour {
         }
         
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             commandPit();
         }
@@ -37,7 +36,7 @@ public partial class TerrainGenerator : MonoBehaviour {
         {
             commandWater();
         }
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             commandMountain();
         }
@@ -73,7 +72,7 @@ public partial class TerrainGenerator : MonoBehaviour {
             {
                 Vector3 newPos = cursor;
                 newPos.y = 0.1f;
-                e.transform.GetComponent<NavMeshAgent>().SetDestination(newPos);
+                e.transform.GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(newPos);
                 break;
             }
         }

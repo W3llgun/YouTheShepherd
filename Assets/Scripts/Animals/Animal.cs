@@ -63,17 +63,17 @@ public class Animal : MonoBehaviour
 
 
 
-        if(! GetComponent<NavMeshAgent>().isOnNavMesh)
+        if(! GetComponent<UnityEngine.AI.NavMeshAgent>().isOnNavMesh)
         {
-            NavMeshHit posTogo;
-            NavMesh.SamplePosition(transform.position, out posTogo, 1000f, NavMesh.AllAreas);
+            UnityEngine.AI.NavMeshHit posTogo;
+            UnityEngine.AI.NavMesh.SamplePosition(transform.position, out posTogo, 1000f, UnityEngine.AI.NavMesh.AllAreas);
 
-            GetComponent<NavMeshAgent>().nextPosition = posTogo.position;
+            GetComponent<UnityEngine.AI.NavMeshAgent>().nextPosition = posTogo.position;
         }
 
-        GetComponent<NavMeshAgent>().radius = 0.25f;
-        GetComponent<NavMeshAgent>().speed = 1.5f;
-        GetComponent<NavMeshAgent>().avoidancePriority = order;
+        GetComponent<UnityEngine.AI.NavMeshAgent>().radius = 0.25f;
+        GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 1.5f;
+        GetComponent<UnityEngine.AI.NavMeshAgent>().avoidancePriority = order;
         order += 2;
 
         //print("order = " + order);
@@ -137,7 +137,7 @@ public class Animal : MonoBehaviour
             Destroy(gameObject);
         }
 
-        GetComponent<NavMeshAgent>().baseOffset = terrain.getTop(CaseActual.transform.position) + 0.5f;
+        GetComponent<UnityEngine.AI.NavMeshAgent>().baseOffset = terrain.getTop(CaseActual.transform.position) + 0.5f;
 
         /*
 		if(Input.GetKeyDown(KeyCode.B) ) {
@@ -149,7 +149,7 @@ public class Animal : MonoBehaviour
 		*/
 
 
-        if (Vector3.Distance(GetComponent<NavMeshAgent>().velocity, Vector3.zero) < 0.001f)
+        if (Vector3.Distance(GetComponent<UnityEngine.AI.NavMeshAgent>().velocity, Vector3.zero) < 0.001f)
         {
 
             timeLast += Time.deltaTime;
@@ -174,7 +174,7 @@ public class Animal : MonoBehaviour
 
                 pos2.y = 0f;
 
-                GetComponent<NavMeshAgent>().SetDestination(pos2);
+                GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(pos2);
             }
             else
                 recalculateDestination();
@@ -241,7 +241,7 @@ public class Animal : MonoBehaviour
 
         e.AddComponent<Rigidbody>().isKinematic = true;
 
-        e.AddComponent<NavMeshAgent>();
+        e.AddComponent<UnityEngine.AI.NavMeshAgent>();
 
         List<string> descriptionPart = new List<string>();
 
@@ -404,7 +404,7 @@ public class Animal : MonoBehaviour
 
                 pos2.y = 0f;
 
-                GetComponent<NavMeshAgent>().SetDestination(pos2);
+                GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(pos2);
                 return;
             }
 
@@ -423,17 +423,17 @@ public class Animal : MonoBehaviour
 
             cible = new Vector3(test.x, 0f, test.z);
 
-            if (!GetComponent<NavMeshAgent>().isOnNavMesh)
+            if (!GetComponent<UnityEngine.AI.NavMeshAgent>().isOnNavMesh)
             {
-                NavMeshHit posTogo;
-                NavMesh.SamplePosition(transform.position, out posTogo, 1000f, NavMesh.AllAreas);
+                UnityEngine.AI.NavMeshHit posTogo;
+                UnityEngine.AI.NavMesh.SamplePosition(transform.position, out posTogo, 1000f, UnityEngine.AI.NavMesh.AllAreas);
 
-                GetComponent<NavMeshAgent>().nextPosition = posTogo.position;
+                GetComponent<UnityEngine.AI.NavMeshAgent>().nextPosition = posTogo.position;
 
                 return ;
             }
 
-            GetComponent<NavMeshAgent>().SetDestination(cible);
+            GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(cible);
 
         }
     }

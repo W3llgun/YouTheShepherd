@@ -11,12 +11,12 @@ public enum Type
 }
 
 public class TerrainScript : MonoBehaviour {
-    NavMeshObstacle e = null;
+    UnityEngine.AI.NavMeshObstacle e = null;
     Type type;
 	// Use this for initialization
 	void Start () {
         if (e == null)
-            e = gameObject.AddComponent<NavMeshObstacle>();
+            e = gameObject.AddComponent<UnityEngine.AI.NavMeshObstacle>();
         e.enabled = false;
     }
 	
@@ -109,7 +109,7 @@ public class TerrainScript : MonoBehaviour {
         yield return null;
 
         if (e == null)
-            e = gameObject.AddComponent<NavMeshObstacle>();
+            e = gameObject.AddComponent<UnityEngine.AI.NavMeshObstacle>();
         e.enabled = true;
         e.carving = true;
         e.size = new Vector3(1, 2, 1);

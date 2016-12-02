@@ -3,7 +3,7 @@ using System.Collections;
 
 public class JumpAnim : MonoBehaviour {
 
-    NavMeshAgent navMeshAgent;
+    UnityEngine.AI.NavMeshAgent navMeshAgent;
     Vector3 iniPos;
     Vector3 offset;
     public float bounceIntensity = 0.2f;
@@ -12,7 +12,7 @@ public class JumpAnim : MonoBehaviour {
 
     void Start()
     {
-        navMeshAgent = this.gameObject.GetComponentInParent<NavMeshAgent>();
+        navMeshAgent = this.gameObject.GetComponentInParent<UnityEngine.AI.NavMeshAgent>();
         iniPos = transform.localPosition;
     }
 	
